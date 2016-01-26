@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by christian on 25.01.2016.
  */
 
-@Controller
+@Controller("/")
 public class AsteriskController {
 
     @Autowired
     public AsteriskService asteriskService;
 
-    @RequestMapping("/index")
+    @RequestMapping
     public String listAsterisk(Map<String, Object> map) {
 
         map.put("asterisk", new Asterisk());
