@@ -1,6 +1,5 @@
 *.class
 
-/src/main/resources/hibernate.cfg.xml
 /.idea
 /target
 # Mobile Tools for Java (J2ME)
