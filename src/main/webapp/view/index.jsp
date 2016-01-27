@@ -41,7 +41,7 @@
 
 
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue layout-boxed sidebar-mini">
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -190,7 +190,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="/login" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
