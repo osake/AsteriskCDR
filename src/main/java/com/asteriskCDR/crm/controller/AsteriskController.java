@@ -13,21 +13,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 
 @Controller
+@RequestMapping("/")
 public class AsteriskController {
 
     @Autowired
     public AsteriskService asteriskService;
 
-    @RequestMapping("/index")
+    @RequestMapping
     public String listAsterisk(Map<String, Object> map) {
 
         map.put("asterisk", new Asterisk());
         map.put("asteriskList", asteriskService.listAsterisk());
         return "index";
-    }
-    @RequestMapping("/login")
-    public String getLogin(){
-
-        return "login";
     }
 }
