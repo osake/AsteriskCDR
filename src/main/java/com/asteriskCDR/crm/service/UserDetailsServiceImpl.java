@@ -12,7 +12,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,15 +22,20 @@ public class UserDetailsServiceImpl implements  UserDetailsService {
     private UserService userService;
 
     @Override
-    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-        User user = userService.getUser("colibri");
-        Set<GrantedAuthority> roles = new HashSet();
-        roles.add(new SimpleGrantedAuthority(UserRoleEnum.ADMIN.name()));
+        User user = userService.getUser("core");
 
-        UserDetails userDetails = new org.springframework.security.core.userdetails.User(user.getLogin(), user.getPasswrd(), roles);
+        if(!email.equals(user.getLogin())) {
+            System.out.println("User: "+email+" not found!");
+            throw new UsernameNotFoundException("User not found");
+        }else {
+            Set<GrantedAuthority> roles = new HashSet();
+            roles.add(new SimpleGrantedAuthority(UserRoleEnum.ADMIN.name()));
 
+            UserDetails userDetails = new org.springframework.security.core.userdetails.User(user.getLogin(), user.getPasswrd(), roles);
 
-        return userDetails;
+            return userDetails;
+        }
     }
 }

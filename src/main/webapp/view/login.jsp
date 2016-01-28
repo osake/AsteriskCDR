@@ -44,10 +44,14 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><b>Asterisk</b>CDR</a>
+    <a href="#"><b>Oregon</b>CRM</a>
   </div><!-- /.login-logo -->
   <div class="login-box-body">
+
     <p class="login-box-msg">Sign in to start your session</p>
+    <c:if test="${param.error != null}">
+      <p class="login-box-msg">Login or Password invalid</p>
+    </c:if>
     <c:url value="/j_spring_security_check" var="loginUrl" />
     <form action="${loginUrl}" method="post">
       <div class="form-group has-feedback">
