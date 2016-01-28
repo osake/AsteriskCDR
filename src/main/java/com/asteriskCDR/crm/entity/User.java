@@ -1,20 +1,37 @@
 package com.asteriskCDR.crm.entity;
-
-import javax.jws.soap.SOAPBinding;
-
+import javax.persistence.*;
 /**
  * Created by oregon on 28.01.2016.
  */
+@Entity
+@Table(name = "users")
 public class User {
-    private String login ;
+
+    @Id
+    @GeneratedValue
+    private Integer id;
+
+    @Column(name = "user_name")
+    private String login;
+
+    @Column(name = "password")
     private String passwrd;
 
-    public User(String login, String passwrd) {
-        this.login = login;
-        this.passwrd = passwrd;
-    }
-    public User(){
 
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinTable(name="users_roles",
+            joinColumns = {@JoinColumn(name="user_id", referencedColumnName="id")},
+            inverseJoinColumns = {@JoinColumn(name="role_id", referencedColumnName="id")}
+    )
+
+    private Role role;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getLogin() {
@@ -31,5 +48,13 @@ public class User {
 
     public void setPasswrd(String passwrd) {
         this.passwrd = passwrd;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
