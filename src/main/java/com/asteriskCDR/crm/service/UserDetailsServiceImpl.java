@@ -13,26 +13,28 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.HashSet;
 import java.util.Set;
 
 @Service
+@Transactional(readOnly = true)
 public class UserDetailsServiceImpl implements  UserDetailsService {
 
     @Autowired
     private UserDAO userDAO;
 
-    @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
 
         User domainUser = userDAO.getUser(login);
 
         Set<GrantedAuthority> roles = new HashSet();
-        roles.add(new SimpleGrantedAuthority(UserRoleEnum.ADMIN.name()));
+        roles.add(new SimpleGrantedAuthority("ADMIN"));
 
         UserDetails userDetails = new org.springframework.security.core.userdetails.User(
                 domainUser.getLogin(),
-                domainUser.getPasswrd(),
+                domainUser.getPassword(),true, true,true, true,
                 roles
         );
 
@@ -40,17 +42,3 @@ public class UserDetailsServiceImpl implements  UserDetailsService {
 
     }
 }
-       /* User user = userService.getUser("core");
-
-        if(!email.equals(user.getLogin())) {
-            System.out.println("User: "+email+" not found!");
-            throw new UsernameNotFoundException("User not found");
-        }else {
-            Set<GrantedAuthority> roles = new HashSet();
-            roles.add(new SimpleGrantedAuthority(UserRoleEnum.ADMIN.name()));
-
-            UserDetails userDetails = new org.springframework.security.core.userdetails.User(user.getLogin(), user.getPasswrd(), roles);
-
-            return userDetails;
-        }
-    }*/

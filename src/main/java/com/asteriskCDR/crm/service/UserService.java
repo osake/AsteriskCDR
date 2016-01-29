@@ -7,6 +7,6 @@ import com.asteriskCDR.crm.entity.User;
  */
 public interface UserService {
 
-    User getUser(String login);
+    public User getUser(String login);
 
 }

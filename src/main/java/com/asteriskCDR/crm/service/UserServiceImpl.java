@@ -10,15 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
  * Created by oregon on 28.01.2016.
  */
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDAO userDAO;
 
-
-    @Override
-    @Transactional
-    public User getUser(String login) {
-        return userDAO.getUser(login);
-    }
+    public User getUser(String login) {return userDAO.getUser(login);}
 }

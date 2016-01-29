@@ -15,7 +15,7 @@ public class User {
     private String login;
 
     @Column(name = "password")
-    private String passwrd;
+    private String password;
 
 
     @OneToOne(cascade=CascadeType.ALL)
@@ -42,12 +42,12 @@ public class User {
         this.login = login;
     }
 
-    public String getPasswrd() {
-        return passwrd;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasswrd(String passwrd) {
-        this.passwrd = passwrd;
+    public void setPassword(String passwrd) {
+        this.password = passwrd;
     }
 
     public Role getRole() {

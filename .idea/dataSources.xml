@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1428099469">
-    <data-source source="LOCAL" name="PostgreSQL - asterisk@82.146.60.158" uuid="c4701fd2-48fe-4c2b-9c47-d452b3ee2486">
-      <driver-ref>postgresql</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://82.146.60.158:5432/asterisk</jdbc-url>
-      <libraries />
-    </data-source>
-    <data-source source="LOCAL" name="PostgreSQL - inventorydata@localhost" uuid="25decd2a-6a4a-43dd-b336-c24356ac6d72">
+  <component name="DataSourceManagerImpl" format="xml" hash="4008501725">
+    <data-source source="LOCAL" name="PostgreSQL - inventorydata@localhost" uuid="107108a6-f3bb-40c8-8214-16cb2019c86d">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
