@@ -10,6 +10,8 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
     protected Class<?>[] getRootConfigClasses() {
         return new Class<?>[]{
                 WebConfig.class,
+                SecurityConfig.class,
+                HibernateConfig.class
         };
     }
 
