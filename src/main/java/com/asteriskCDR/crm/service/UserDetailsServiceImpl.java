@@ -15,8 +15,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Service
 @Transactional(readOnly = true)
@@ -29,16 +28,44 @@ public class UserDetailsServiceImpl implements  UserDetailsService {
 
         User domainUser = userDAO.getUser(login);
 
-        Set<GrantedAuthority> roles = new HashSet();
-        roles.add(new SimpleGrantedAuthority("ADMIN"));
+        /*Set<GrantedAuthority> roles = new HashSet();
+        roles.add(new SimpleGrantedAuthority("ADMIN"));*/
 
         UserDetails userDetails = new org.springframework.security.core.userdetails.User(
                 domainUser.getLogin(),
                 domainUser.getPassword(),true, true,true, true,
-                roles
+                getAuthorities(domainUser.getRole().getId())
         );
 
         return userDetails;
 
+    }
+    public Collection<? extends GrantedAuthority> getAuthorities(Integer role) {
+        List<GrantedAuthority> authList = getGrantedAuthorities(getRoles(role));
+        return authList;
+    }
+
+    public List<String> getRoles(Integer role) {
+
+        List<String> roles = new ArrayList<String>();
+
+        if (role.intValue() == 1) {
+            roles.add("ADMIN");
+            roles.add("MODERATOR");
+        } else if (role.intValue() == 2) {
+            roles.add("MODERATOR");
+        } else if(role.intValue() == 3) {
+            roles.add("USER");
+        }
+        return roles;
+    }
+
+    public static List<GrantedAuthority> getGrantedAuthorities(List<String> roles) {
+        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+
+        for (String role : roles) {
+            authorities.add(new SimpleGrantedAuthority(role));
+        }
+        return authorities;
     }
 }

@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 
 @Entity
-@Table(name = "datatable")
+@Table(name = "cdr")
 public class Asterisk {
 
     @Id
@@ -20,11 +20,11 @@ public class Asterisk {
     @GeneratedValue
     private Integer id;
 
-    @Column(name = "namevalue")
+    @Column(name = "clid")
     private String clid;
 
-    @Column(name = "qwecount")
-    private int disposition;
+    @Column(name = "disposition")
+    private String disposition;
 
     public Integer getId() {
         return id;
@@ -42,11 +42,11 @@ public class Asterisk {
         this.clid = clid;
     }
 
-    public int getDisposition() {
+    public String getDisposition() {
         return disposition;
     }
 
-    public void setDisposition(int disposition) {
+    public void setDisposition(String disposition) {
         this.disposition = disposition;
     }
 }
