@@ -26,13 +26,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-                .antMatchers("/").authenticated();
+                //.antMatchers("/resources/**", "/registration").permitAll()
+                .antMatchers("/").authenticated()
+                .antMatchers("/registration").anonymous()
+                .antMatchers("/login").anonymous();
+                /*.antMatchers("/register").permitAll();*/
 
         http.csrf()
                 .disable()
                 .authorizeRequests()
                 .antMatchers("/resources/**").permitAll()
                 .anyRequest().permitAll()
+                /*.antMatchers("/register").permitAll()
+                .anyRequest().permitAll()*/
                 .and();
 
         http.formLogin()
@@ -49,6 +55,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .logoutSuccessUrl("/login")
                 .invalidateHttpSession(true);
     }
+
+
 
     @Autowired
     @Qualifier("userDetailsServiceImpl")
