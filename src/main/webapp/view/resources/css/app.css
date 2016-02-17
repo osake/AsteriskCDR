@@ -1,0 +1,72 @@
+body {
+	 font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+	 padding-top: 20px;
+  	 padding-bottom: 20px;
+  	 background: #252830;
+  	 color: #cfd2da;
+}
+
+.login-box {
+	width: 360px;
+	margin: 7% auto;
+}
+
+.login-logo {
+	font-size: 35px;
+	text-align: center;
+	margin-bottom: 25px;
+	font-weight: 300;
+}
+
+.login-logo a {
+	text-decoration: none;
+	color: #51586a;
+}
+.login-logo a:hover {
+	color: #1ca8dd;
+}
+
+.login-box-body {
+	background: #51586a;
+    padding: 20px;
+    border-top: 0;
+}
+
+.form-control {
+	width: 100%;
+	background-color: #434857;
+	color: #ffffff;
+}
+
+.row {
+	margin-right: -15px;
+	margin-left: -7px;
+}
+.table-row {
+	width: 100%;
+	margin: 7% auto;
+}
+.navbar {
+	margin-bottom: 20px;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+.table> thead > tr > th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #434857;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td{
+	border-top: 1px solid #434857;
+}
+
+.headerSortDown {
+	white-space: nowrap;
+	cursor: pointer;
+	font-weight:  700 !important;
+	color: #1ca8dd !important;
+	border-bottom-color: #1ca8dd !important;
+}
+table {
+	border-collapse: collapse;
+}
