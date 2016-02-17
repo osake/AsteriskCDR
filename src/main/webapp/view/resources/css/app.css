@@ -70,3 +70,55 @@ body {
 table {
 	border-collapse: collapse;
 }
+.profile {
+	background-color: #4d5364;
+	position: relative;
+	right: -90%;
+	margin: 5px;
+	width: 9%;
+	height: 7%;
+	border-radius: 5px;
+	padding: 5px;
+	align-content: center;
+}
+.img-circle {
+	position: absolute;
+	width: 45px;
+	height: 45px;
+	float: left;
+	top: 16%;
+}
+.profile:hover {
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	cursor: hand;
+}
+.username {
+	position: relative;
+	float: left;
+	color: #cfd2da;
+	top: 30%;
+	left: -4%;
+	padding-left:65px;
+}
+
+ul li{
+	list-style: none;
+	margin: 10px;
+	background-color: #4d5364;
+	text-align: center;
+	border-radius: 2px;
+}
+
+li > a {
+	text-decoration: none;
+}
+
+.menu {
+	position: absolute;
+	left: 8%;
+	margin: 5px;
+	width: 8%;
+	border-radius: 5px;
+	padding: 5px;
+	top: 25%;
+}

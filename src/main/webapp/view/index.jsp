@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page session="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <spring:url value="/resources/css/bootstrap.min.css" var="bootstrapMinCss"/>
@@ -16,28 +17,21 @@
 	<link rel="stylesheet" type="text/css" href="${appCss}">
 	
 </head>
+<div class="profile" style="color: #0074d9;">
+    <img src="https://s-media-cache-ak0.pinimg.com/236x/ea/93/53/ea93537e4451928c4d522045b3514fae.jpg" alt="..." class="img-circle img-responsive">
+    <span class="username"><b><sec:authentication property="principal.username"/></b></span>
+</div>
+<div class="menu">
+        <ul>
+            <li><a href="#"><b>Home</b></a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Table</a></li>
+            <li><a href="#">Swart</a></li>
+            <li><a href="#">Users</a></li>
+            <li><a href="#">Asterisk</a></li>
+        </ul>
+</div>
  <div class="container">
-
-      <!-- Static navbar -->
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"><b>Oregon</b>CRM</a>
-          </div>
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="/logout">Out</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-      </div>
-
 <div class="table-row">
 	<div class="table-responsive">
             <table class="table table-condensed">
